@@ -1,7 +1,8 @@
 #include "Personnage.h"
 
 Personnage::Personnage() {
-
+	vie = 100;
+	mana = 100;
 }
 
 void Personnage::attaquerPersonnage(Personnage &cible) {
