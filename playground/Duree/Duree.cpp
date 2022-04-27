@@ -48,6 +48,31 @@ Duree& Duree::operator+=(int s) {
 	return *this;
 }
 
+Duree& Duree::operator-=(Duree const& d) {
+	secondes -= d.secondes;
+	minutes -= secondes / 60;
+	secondes %= 60;
+
+	minutes -= d.minutes;
+	heures -= minutes / 60;
+	minutes %= 60;
+
+	heures -= d.heures;
+
+	return *this;
+}
+
+Duree& Duree::operator-=(int s) {
+	secondes -= s;
+	minutes -= secondes / 60;
+	secondes %= 60;
+
+	heures -= minutes / 60;
+	minutes %= 60;
+
+	return *this;
+}
+
 void Duree::affiche() {
 	std::cout << heures << "h" << minutes << "m" << secondes << "s" << std::endl;
 }
