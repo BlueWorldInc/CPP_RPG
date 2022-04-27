@@ -6,6 +6,6 @@ int main() {
 	// std::cout << "d1 + d2" << std::endl;
 	// d1 += 55;
 	// d1.affiche();
-	std::cout << d1 << std::endl;
+	std::cout << d1 + d2 << std::endl;
 	return 0;
 }
