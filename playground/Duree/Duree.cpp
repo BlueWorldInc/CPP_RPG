@@ -94,6 +94,5 @@ Duree operator+(Duree const& d1, int secondes) {
 
 std::ostream& operator<<(std::ostream &flux, Duree const& d1) {
 	d1.affiche(flux);
-	// d1.affiche();
 	return flux;
 }
