@@ -38,3 +38,15 @@ bool operator!=(Duree const& d1, Duree const& d2) {
 bool operator<(Duree const& d1, Duree const& d2) {
 	return (d1.estPlusPetitQue(d2));
 }
+
+bool operator>=(Duree const& d1, Duree const& d2) {
+	return !(d1.estPlusPetitQue(d2));
+}
+
+bool operator>(Duree const& d1, Duree const& d2) {
+	return !(d1.estPlusPetitQue(d2) || d1.estEgale(d2));
+}
+
+bool operator<=(Duree const& d1, Duree const& d2) {
+	return (d1.estPlusPetitQue(d2) || d1.estEgale(d2));
+}

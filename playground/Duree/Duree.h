@@ -17,5 +17,8 @@ class Duree {
 bool operator==(Duree const& d1, Duree const& d2);
 bool operator!=(Duree const& d1, Duree const& d2);
 bool operator<(Duree const& d1, Duree const& d2);
+bool operator>=(Duree const& d1, Duree const& d2);
+bool operator>(Duree const& d1, Duree const& d2);
+bool operator<=(Duree const& d1, Duree const& d2);
 
 #endif
