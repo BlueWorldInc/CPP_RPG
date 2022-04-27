@@ -2,11 +2,9 @@
 #include "Duree.h"
 
 int main() {
-	Duree d1(0, 5, 12), d2(4, 44, 15), d3(0, 5, 12);
-	if (d1 < d3) {
-		std::cout << "d1 pas plus petit";
-	} else {
-		std::cout << "d1 plus petit";
-	}
+	Duree d1(0, 20, 52), d2(4, 44, 15), d3(0, 5, 12);
+	std::cout << "d1 + d2" << std::endl;
+	d1 += 599;
+	d1.affiche();
 	return 0;
 }

@@ -7,6 +7,8 @@ class Duree {
 		void affiche();
 		bool estEgale(Duree const& d) const;
 		bool estPlusPetitQue(Duree const& d) const;
+		Duree& operator+=(Duree const& d);
+		Duree& operator+=(int secondes);
 
 	private:
 		int secondes;
@@ -20,5 +22,7 @@ bool operator<(Duree const& d1, Duree const& d2);
 bool operator>=(Duree const& d1, Duree const& d2);
 bool operator>(Duree const& d1, Duree const& d2);
 bool operator<=(Duree const& d1, Duree const& d2);
+Duree operator+(Duree const& d1, Duree const& d2);
+Duree operator+(Duree const& d1, int secondes);
 
 #endif
