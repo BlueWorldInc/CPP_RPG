@@ -1,0 +1,3 @@
+g++ -c .\Personnage.cpp -o personnage.o
+g++ -c .\hello.cpp -o hello.o
+g++ .\personnage.o .\hello.o -o program
