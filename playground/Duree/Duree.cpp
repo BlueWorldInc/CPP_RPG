@@ -48,33 +48,12 @@ Duree& Duree::operator+=(int s) {
 	return *this;
 }
 
-Duree& Duree::operator-=(Duree const& d) {
-	secondes -= d.secondes;
-	minutes -= secondes / 60;
-	secondes %= 60;
-
-	minutes -= d.minutes;
-	heures -= minutes / 60;
-	minutes %= 60;
-
-	heures -= d.heures;
-
-	return *this;
-}
-
-Duree& Duree::operator-=(int s) {
-	secondes -= s;
-	minutes -= secondes / 60;
-	secondes %= 60;
-
-	heures -= minutes / 60;
-	minutes %= 60;
-
-	return *this;
-}
-
-void Duree::affiche() {
+void Duree::affiche() const {
 	std::cout << heures << "h" << minutes << "m" << secondes << "s" << std::endl;
+}
+
+void Duree::affiche(std::ostream &flux) const {
+	flux << heures << "h" << minutes << "m" << secondes << "s";
 }
 
 bool operator==(Duree const& d1, Duree const& d2) {
@@ -113,14 +92,8 @@ Duree operator+(Duree const& d1, int secondes) {
 	return resultat;
 }
 
-Duree operator-(Duree const& d1, Duree const& d2) {
-	Duree resultat(d1);
-	resultat -= d2;
-	return resultat;
-}
-
-Duree operator-(Duree const& d1, int secondes) {
-	Duree resultat(d1);
-	resultat -= secondes;
-	return resultat;
+std::ostream& operator<<(std::ostream &flux, Duree const& d1) {
+	d1.affiche(flux);
+	// d1.affiche();
+	return flux;
 }
