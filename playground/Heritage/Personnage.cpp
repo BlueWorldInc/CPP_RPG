@@ -29,6 +29,7 @@ void Personnage::donnerCoupDePoingt(Personnage &cible) const {
 }
 
 void Personnage::getStatus() const {
+	std::cout << "Salutations mon nom est: " << nom << std::endl;
 	std::cout << "Vie: " << vie << std::endl;
 }
 
