@@ -31,3 +31,7 @@ void Personnage::donnerCoupDePoingt(Personnage &cible) const {
 void Personnage::getStatus() const {
 	std::cout << "Vie: " << vie << std::endl;
 }
+
+bool Personnage::estVivant() const {
+	return vie > 0;
+}
