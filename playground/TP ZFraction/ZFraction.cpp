@@ -15,10 +15,31 @@ ZFraction::ZFraction(int numerateur, int denominateur) {
 	this->denominateur = denominateur;
 }
 
-ZFraction additionne(ZFraction z1, ZFraction z2);
-ZFraction multiplie(ZFraction z1, ZFraction z2);
+ZFraction ZFraction::additionne(ZFraction z1, ZFraction z2) {
+	// TEST
+	// 5/2
+	// 7/3
+	// 29/6
+	ZFraction z(0);
+	z.denominateur = z1.denominateur * z2.denominateur;
+	z.numerateur = z1.numerateur * z2.denominateur + z2.numerateur * z1.denominateur;
+	z.simplifie();
+	return z;
+}
 
-int ZFraction::PGCD(int n1, int n2) {
+ZFraction ZFraction::multiplie(ZFraction z1, ZFraction z2) {
+	// 5/2
+	// 2/4
+	// 10/8
+	ZFraction z(0);
+	z.numerateur = z1.numerateur * z2.numerateur;
+	z.denominateur = z1.denominateur * z2.denominateur;
+	z.simplifie();
+	return z;
+
+}
+
+int ZFraction::PGCD(int n1, int n2) const {
 	// TEST
 	// std::cout << z.PGCD(81, 54) << std::endl; // 27
 	// std::cout << z.PGCD(544, 88) << std::endl; // 8
@@ -34,26 +55,27 @@ int ZFraction::PGCD(int n1, int n2) {
 	return n2;
 }
 
-ZFraction simplifie(ZFraction z) {
-	// 5/2
-	// 6/2
-	// si le reste est egale à zéro on peut diviser
-	// 6/3
+void ZFraction::simplifie() {
+	int pgcd = this->PGCD(numerateur, denominateur);
+	numerateur = numerateur / pgcd;
+	denominateur = denominateur / pgcd;
+}
 
-	// 30/9
-	// 10/3
-
-	// 40/16
-	// 20/8
-	// 10/4
-	// 5/2
-
+ZFraction ZFraction::simplifie(ZFraction z) const {
+	int pgcd = this->PGCD(z.numerateur, z.denominateur);
+	z.numerateur = z.numerateur / pgcd;
+	z.denominateur = z.denominateur / pgcd;
 	return z;
 }
 
-bool estSuperieur(ZFraction z) {
+bool ZFraction::estSuperieur(ZFraction z) {
 	return true;
 }
-bool estEgale(ZFraction z) {
+
+bool ZFraction::estEgale(ZFraction z) {
 	return true;
+}
+
+void ZFraction::affiche() {
+	std::cout << numerateur << "/" << denominateur << std::endl;
 }
