@@ -92,6 +92,13 @@ ZFraction& ZFraction::operator+=(ZFraction const& z) {
 	return *this;
 }
 
+ZFraction& ZFraction::operator+=(int n) {
+	// 5
+	// 15/2
+	numerateur += n * denominateur;
+	return *this;
+}
+
 void ZFraction::affiche() {
 	std::cout << numerateur << "/" << denominateur << std::endl;
 }
@@ -111,5 +118,11 @@ bool operator>(ZFraction const& z1, ZFraction const& z2) {
 ZFraction operator+(ZFraction const& z1, ZFraction const& z2) {
 	ZFraction z(z1);
 	z += z2;
+	return z;
+}
+
+ZFraction operator+(ZFraction const& z1, int n) {
+	ZFraction z(z1);
+	z += n;
 	return z;
 }

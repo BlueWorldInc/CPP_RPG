@@ -18,6 +18,7 @@ class ZFraction
 		bool estEgale(ZFraction const& z) const;
 		void affiche();
 		ZFraction& operator+=(ZFraction const& z);
+		ZFraction& operator+=(int n);
 	private:
 		int numerateur;
 		int denominateur;
@@ -27,5 +28,6 @@ bool operator==(ZFraction const& z1, ZFraction const& z2);
 bool operator!=(ZFraction const& z1, ZFraction const& z2);
 bool operator>(ZFraction const& z1, ZFraction const& z2);
 ZFraction operator+(ZFraction const& z1, ZFraction const& z2);
+ZFraction operator+(ZFraction const& z1, int n);
 
 #endif
