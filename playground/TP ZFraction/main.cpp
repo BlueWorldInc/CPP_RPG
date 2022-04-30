@@ -7,7 +7,7 @@ int main() {
 	ZFraction z2(5, 2);
 	// std::cout << z1.estSuperieur(z2) << std::endl;
 	z0.affiche();
-	z0 = z1 + z2;
+	z0 = z1 + z2 + z2;
 	z0.affiche();
 	return 0;
 }
