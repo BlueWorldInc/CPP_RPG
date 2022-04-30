@@ -68,14 +68,48 @@ ZFraction ZFraction::simplifie(ZFraction z) const {
 	return z;
 }
 
-bool ZFraction::estSuperieur(ZFraction z) {
-	return true;
+bool ZFraction::estSuperieur(ZFraction const& z) const {
+	double z0 = z.numerateur / z.denominateur;
+	double z1 = this->numerateur / this->denominateur;
+	return (z1 > z0);
 }
 
-bool ZFraction::estEgale(ZFraction z) {
-	return true;
+bool ZFraction::estEgale(ZFraction const& z) const {
+	ZFraction zCopie0(z);
+	ZFraction zCopie1(*this);
+	
+	zCopie0.simplifie();
+	zCopie1.simplifie();
+
+	return (zCopie0.numerateur == zCopie1.numerateur && zCopie0.denominateur == zCopie1.denominateur);
+}
+
+ZFraction& ZFraction::operator+=(ZFraction const& z) {
+	ZFraction zCopie1(*this);
+	zCopie1 = zCopie1.additionne(zCopie1, z);
+	numerateur = zCopie1.numerateur;
+	denominateur = zCopie1.denominateur;
+	return *this;
 }
 
 void ZFraction::affiche() {
 	std::cout << numerateur << "/" << denominateur << std::endl;
+}
+
+bool operator==(ZFraction const& z1, ZFraction const& z2) {
+	return z1.estEgale(z2);
+}
+
+bool operator!=(ZFraction const& z1, ZFraction const& z2) {
+	return !(z1==z2);
+}
+
+bool operator>(ZFraction const& z1, ZFraction const& z2) {
+	return z1.estSuperieur(z2);
+}
+
+ZFraction operator+(ZFraction const& z1, ZFraction const& z2) {
+	ZFraction z(z1);
+	z += z2;
+	return z;
 }

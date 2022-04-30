@@ -14,12 +14,18 @@ class ZFraction
 		void simplifie();
 		ZFraction simplifie(ZFraction z) const;
 		int PGCD(int n1, int n2) const;
-		bool estSuperieur(ZFraction z);
-		bool estEgale(ZFraction z); 
+		bool estSuperieur(ZFraction const& z) const;
+		bool estEgale(ZFraction const& z) const;
 		void affiche();
+		ZFraction& operator+=(ZFraction const& z);
 	private:
 		int numerateur;
 		int denominateur;
 };
+
+bool operator==(ZFraction const& z1, ZFraction const& z2);
+bool operator!=(ZFraction const& z1, ZFraction const& z2);
+bool operator>(ZFraction const& z1, ZFraction const& z2);
+ZFraction operator+(ZFraction const& z1, ZFraction const& z2);
 
 #endif
